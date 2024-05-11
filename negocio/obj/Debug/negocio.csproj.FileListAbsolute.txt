@@ -1,9 +1,0 @@
-C:\Users\Tomas\Desktop\TECNICATURA SISTEMAS\GitHub\ProgIII_TP2_Definitivo\ProgIII_TP2\negocio\bin\Debug\negocio.dll
-C:\Users\Tomas\Desktop\TECNICATURA SISTEMAS\GitHub\ProgIII_TP2_Definitivo\ProgIII_TP2\negocio\bin\Debug\negocio.pdb
-C:\Users\Tomas\Desktop\TECNICATURA SISTEMAS\GitHub\ProgIII_TP2_Definitivo\ProgIII_TP2\negocio\bin\Debug\dominio.dll
-C:\Users\Tomas\Desktop\TECNICATURA SISTEMAS\GitHub\ProgIII_TP2_Definitivo\ProgIII_TP2\negocio\bin\Debug\dominio.pdb
-C:\Users\Tomas\Desktop\TECNICATURA SISTEMAS\GitHub\ProgIII_TP2_Definitivo\ProgIII_TP2\negocio\obj\Debug\negocio.csproj.AssemblyReference.cache
-C:\Users\Tomas\Desktop\TECNICATURA SISTEMAS\GitHub\ProgIII_TP2_Definitivo\ProgIII_TP2\negocio\obj\Debug\negocio.csproj.CoreCompileInputs.cache
-C:\Users\Tomas\Desktop\TECNICATURA SISTEMAS\GitHub\ProgIII_TP2_Definitivo\ProgIII_TP2\negocio\obj\Debug\negocio.csproj.Up2Date
-C:\Users\Tomas\Desktop\TECNICATURA SISTEMAS\GitHub\ProgIII_TP2_Definitivo\ProgIII_TP2\negocio\obj\Debug\negocio.dll
-C:\Users\Tomas\Desktop\TECNICATURA SISTEMAS\GitHub\ProgIII_TP2_Definitivo\ProgIII_TP2\negocio\obj\Debug\negocio.pdb
