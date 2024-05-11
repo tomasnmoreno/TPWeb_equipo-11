@@ -1,6 +1,0 @@
-C:\Users\Tomas\Desktop\TECNICATURA SISTEMAS\GitHub\ProgIII_TP2_Definitivo\ProgIII_TP2\dominio\bin\Debug\dominio.dll
-C:\Users\Tomas\Desktop\TECNICATURA SISTEMAS\GitHub\ProgIII_TP2_Definitivo\ProgIII_TP2\dominio\bin\Debug\dominio.pdb
-C:\Users\Tomas\Desktop\TECNICATURA SISTEMAS\GitHub\ProgIII_TP2_Definitivo\ProgIII_TP2\dominio\obj\Debug\dominio.csproj.AssemblyReference.cache
-C:\Users\Tomas\Desktop\TECNICATURA SISTEMAS\GitHub\ProgIII_TP2_Definitivo\ProgIII_TP2\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
-C:\Users\Tomas\Desktop\TECNICATURA SISTEMAS\GitHub\ProgIII_TP2_Definitivo\ProgIII_TP2\dominio\obj\Debug\dominio.dll
-C:\Users\Tomas\Desktop\TECNICATURA SISTEMAS\GitHub\ProgIII_TP2_Definitivo\ProgIII_TP2\dominio\obj\Debug\dominio.pdb
