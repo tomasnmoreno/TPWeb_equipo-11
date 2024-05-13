@@ -11,7 +11,7 @@ namespace TPWeb_equipo_11
 {
 
 
-    public partial class Home
+    public partial class Carrito
     {
     }
 }
