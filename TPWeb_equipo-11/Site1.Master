@@ -21,7 +21,7 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="Home.aspx">Inicio</a>
                                 </li>
@@ -31,7 +31,7 @@
                                 </li>
                             </ul>
                             <form class="d-flex" role="search">
-                                <input class="form-control me-2" type="search" placeholder="Búsqueda" aria-label="Search">
+                                <input class="form-control me-2 " type="search" placeholder="Búsqueda" aria-label="Search">
                                 <button class="btn btn-primary" type="submit">Buscar</button>
                             </form>
                         </div>
@@ -44,7 +44,41 @@
                 </asp:ContentPlaceHolder>
             </div>
 
-            <footer>Footer</footer>
+            <footer class="bg-dark text-light pt-5 pb-4">
+                
+                <div class="container text-center text-md-start">
+                    <div class="row text-center text-md-start">
+                        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                            <h5 class="text-uppercase mb-4 front-weight-bold text-primary">Nosotros</h5>
+                            <hr class="mb-4"/>
+                            <p>Alexis Diego Flores</p>
+                            <p>Tomas Nehuen Moreno Arandez</p>
+                            <p>Lucio Romero</p>
+                        </div>
+                        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                            <h5 class="text-uppercase mb-4 front-weight-bold text-primary">Nuestra web</h5>
+                            <hr class="mb-4"/>
+                            <p>
+                                <a href="Home.aspx">
+                                    <strong class="text-primary">Inicio</strong>
+                                </a>
+                            </p>
+                            <p>
+                                <a href="Carrito.aspx">
+                                    <strong class="text-primary">Carrito</strong>
+                                </a>
+                            </p>   
+                        </div>
+                        <hr class="mb-4"/>
+                        <div class="text-center mb-2">
+                            <p>
+                                Programacion 3 - Tp Web
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </footer>
         </div>
     </form>
 </body>
