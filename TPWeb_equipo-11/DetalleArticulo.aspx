@@ -22,42 +22,42 @@
             <div class="row mb-3">
                 <label for="txtCodigo" class="col-sm-2 col-form-label">Codigo</label>
                 <div class="col-sm-10">
-                    <asp:TextBox CssClass="col-sm-2 form-control" ID="txtCodigo" runat="server" />
+                    <asp:TextBox CssClass="col-sm-2" ID="txtCodigo" runat="server" ReadOnly="true"/>
                     <%--<input type="email" class="form-control" id="colFormLabel" placeholder="col-form-label">--%>
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="txtNombre" class="col-sm-2 col-form-label">Nombre</label>
                 <div class="col-sm-10">
-                    <asp:TextBox CssClass="col-sm-2 form-control" ID="txtNombre" runat="server" />
+                    <asp:TextBox CssClass="col-sm-2 " ID="txtNombre" runat="server" ReadOnly="true"/>
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label for="txtDescripcion" class="col-sm-2 col-form-label">Descripcion</label>
                 <div class="col-sm-10">
-                    <asp:TextBox CssClass="col-sm-2 form-control" ID="txtDescripcion" runat="server" />
+                    <asp:TextBox CssClass="col-sm-2 " ID="txtDescripcion" runat="server" ReadOnly="true"/>
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label for="txtMarca" class="col-sm-2 col-form-label">Marca</label>
                 <div class="col-sm-10">
-                    <asp:TextBox CssClass="col-sm-2 form-control" ID="txtMarca" runat="server" />
+                    <asp:TextBox CssClass="col-sm-2 " ID="txtMarca" runat="server" ReadOnly="true"/>
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label for="txtCategoria" class="col-sm-2 col-form-label">Categoria</label>
                 <div class="col-sm-10">
-                    <asp:TextBox CssClass="col-sm-2 form-control" ID="txtCategoria" runat="server" />
+                    <asp:TextBox CssClass="col-sm-2 " ID="txtCategoria" runat="server" ReadOnly="true"/>
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label for="txtPrecio" class="col-sm-2 col-form-label">Precio</label>
                 <div class="col-sm-10">
-                    <asp:TextBox CssClass="col-sm-2 form-control" ID="txtPrecio" runat="server" />
+                    <asp:TextBox CssClass="col-sm-2 " ID="txtPrecio" runat="server" ReadOnly="true"/>
                 </div>
             </div>
 
