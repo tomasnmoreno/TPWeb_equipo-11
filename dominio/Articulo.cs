@@ -23,7 +23,7 @@ namespace dominio
         public CategoriaArticulo categoria { get; set; }
         public string imagenUrl { get; set; }
 
-        //List <string> listaImagenes = new List<string>();
+        //List<string> listaImagenes;
 
         //public SqlMoney precio { get; set; }
 

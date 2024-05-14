@@ -14,8 +14,10 @@ namespace TPWeb_equipo_11
         public List<Articulo> listaArticulos;
         protected void Page_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            listaArticulos = negocio.listar();
+            ArticuloNegocio artNegocio = new ArticuloNegocio();
+            listaArticulos = artNegocio.listar();
+           
+            Session.Add("listaArticulos", listaArticulos);
         }
     }
 }

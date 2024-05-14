@@ -18,8 +18,9 @@
                     <div class="card-body">
                         <h5 class="card-title"><%=item.nombre %></h5>
                         <p class="card-text"><%=item.descripcion %></p>
-                        <a href="#" class="btn btn-secondary">Ver detalle</a>
-                        <button class="btn btn-primary">Agregar al carrito</button>
+                        <a href="DetalleArticulo.aspx?id=<%=item.id %>" class="btn btn-secondary">Ver detalle</a>
+                        <%--<asp:Button cssclass="btn btn-primary" Text ="Agregar al Carrito" ID="btnAgregar" runat="server" />--%>
+                        <button class="btn btn-primary" id="btnAgregar">Agregar al carrito</button>
                     </div>
                 </div>
             </div>
