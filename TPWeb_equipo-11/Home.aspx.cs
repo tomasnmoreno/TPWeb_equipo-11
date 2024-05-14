@@ -12,6 +12,8 @@ namespace TPWeb_equipo_11
     public partial class Home : System.Web.UI.Page
     {
         public List<Articulo> listaArticulos;
+        public List<Imagen> listaimagenes;
+        public ImagenNegocio imaNegocio = new ImagenNegocio();
         protected void Page_Load(object sender, EventArgs e)
         {
             ArticuloNegocio artNegocio = new ArticuloNegocio();
