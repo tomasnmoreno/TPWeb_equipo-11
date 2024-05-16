@@ -12,6 +12,7 @@
     </div>
 
     <%-- CAROUSEL --%>
+    
     <div class="row">
         <div class="col-6">
             <div id="carouselExample" class="carousel slide">
@@ -41,7 +42,6 @@
                 <label for="txtCodigo" class="col-sm-2 col-form-label">Codigo</label>
                 <div class="col-sm-10">
                     <asp:TextBox CssClass="col-sm-2" ID="txtCodigo" runat="server" ReadOnly="true" />
-                    <%--<input type="email" class="form-control" id="colFormLabel" placeholder="col-form-label">--%>
                 </div>
             </div>
             <div class="row mb-3">

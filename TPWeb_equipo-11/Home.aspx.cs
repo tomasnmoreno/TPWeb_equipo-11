@@ -18,8 +18,48 @@ namespace TPWeb_equipo_11
         {
             ArticuloNegocio artNegocio = new ArticuloNegocio();
             listaArticulos = artNegocio.listar();
-           
+
+            if (!IsPostBack)
+            {
+                repetidor.DataSource = listaArticulos;
+                repetidor.DataBind();
+            }
+
             Session.Add("listaArticulos", listaArticulos);
+        }
+
+        protected void btnAgregarAlCarrito_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            int articuloId = Convert.ToInt32(btn.CommandArgument);
+
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            listaArticulos = negocio.listar();
+
+
+            List<Articulo> seleccionados;
+            if (Session["Seleccionados"] == null)
+            {
+                seleccionados = new List<Articulo>();
+            }
+            else
+            {
+                seleccionados = (List<Articulo>)Session["Seleccionados"];
+            }
+
+            foreach (Articulo item in listaArticulos)
+            {
+                if (articuloId == item.id)
+                {
+                    seleccionados.Add(item);
+                }
+            }
+
+
+
+
+            Session["Seleccionados"] = seleccionados;
+            Response.Redirect(Request.RawUrl);
         }
     }
 }

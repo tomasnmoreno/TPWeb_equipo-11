@@ -11,43 +11,27 @@
         </div>
 
         <div class="row">
-            <% int j = 0; foreach (dominio.Articulo item in listaArticulos)
-                {
-                    listaimagenes = imaNegocio.listar(item);
-            %>
-            <div class="col-md-4 mb-4">
-                <div class="card" style="width: 18rem;">
-                    <div>
-                        <div id="carouselExample<%=j%>" class="carousel slide">
-                            <div class="carousel-inner">
-                                <% int i = 0; foreach (dominio.Imagen itemima in listaimagenes)
-                                    { %>
-                                <div class="carousel-item <%= i == 0 ? "active" : "" %>">
-                                    <img src="<%=itemima.url %>" class="d-block w-100" alt="...">
-                                </div>
-                                <% i++;
-                                    } %>
+            <asp:Repeater runat="server" ID="repetidor">
+                <ItemTemplate>
+                    <div class="col-md-4 mb-4">
+                        <div class="card" style="width: 18rem;">
+
+                            <div class="card-body">
+                                
+                                <img src="<%# Eval("imagenUrl") %>" class="card-img-top" alt="...">
+                                <h5 class="card-title"><%# Eval("nombre") %></h5>
+                                <p class="card-text"><%#  Eval("descripcion") %></p>
+                                <p class="card-text">Precio: $ <%# string.Format("{0:0.00}", Eval("precio")) %></p>
+                                <a href="DetalleArticulo.aspx?id=<%# Eval("id") %>" class="btn btn-secondary">Ver detalle</a>
+                                <asp:Button ID="btnAgregarAlCarrito" runat="server" Text="Agregar al carrito" Onclick="btnAgregarAlCarrito_Click" CssClass="btn btn-primary" CommandArgument='<%# Eval("Id") %>' CommandName="ArticuloId"/>
+                            
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample<%=j%>" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
-                                <span class="visually-hidden ">Previous</span>
-                            </button>
-                            <button class="carousel-control-next " type="button" data-bs-target="#carouselExample<%=j%>" data-bs-slide="next">
-                                <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
+                        
                         </div>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title"><%=item.nombre %></h5>
-                        <p class="card-text"><%=item.descripcion %></p>
-                        <a href="DetalleArticulo.aspx?id=<%=item.id %>" class="btn btn-secondary">Ver detalle</a>
-                        <button class="btn btn-primary" id="btnAgregar">Agregar al carrito</button>
-                    </div>
-                </div>
-            </div>
-            <% j++;
-            } %>
+                </ItemTemplate>
+            </asp:Repeater>
+
         </div>
 
     </div>
