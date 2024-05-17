@@ -36,7 +36,6 @@ namespace TPWeb_equipo_11
             ArticuloNegocio negocio = new ArticuloNegocio();
             listaArticulos = negocio.listar();
 
-
             List<Articulo> seleccionados;
             if (Session["Seleccionados"] == null)
             {
@@ -54,9 +53,6 @@ namespace TPWeb_equipo_11
                     seleccionados.Add(item);
                 }
             }
-
-
-
 
             Session["Seleccionados"] = seleccionados;
             Response.Redirect(Request.RawUrl);
