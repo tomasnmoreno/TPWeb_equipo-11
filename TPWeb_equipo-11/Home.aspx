@@ -7,10 +7,13 @@
     <div class="row">
         <div>
             <h1>Listado de artículos</h1>
+            <asp:TextBox ID="txtBusqueda" runat="server" BorderStyle="Ridge"></asp:TextBox>
+            <%--<input style="margin-left: 20px" class="form-control me-2 " type="search" placeholder="Búsqueda" aria-label="Search">--%>
+            <asp:Button Text="Buscar" id="btnBuscar" onclick="btnBuscar_Click" cssclass="btn btn-primary" runat="server" style="margin-left: 20px" class="form-control me-2 " type="search" placeholder="Búsqueda" aria-label="Search"/>
+            <%--<button class="btn btn-primary" type="submit">Buscar</button>--%>
             <hr />
         </div>
-
-        <div class="row">
+        <div class="row" style="margin-top: 20px">
             <asp:Repeater runat="server" ID="repetidor">
                 <ItemTemplate>
                     <div class="col-md-4 mb-4">
