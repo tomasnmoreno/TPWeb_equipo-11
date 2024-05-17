@@ -13,6 +13,7 @@ namespace TPWeb_equipo_11
     public partial class Carrito : System.Web.UI.Page
     {
         public List<Articulo> listaArticulos;
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Seleccionados"] != null)
@@ -52,9 +53,9 @@ namespace TPWeb_equipo_11
             if(seleccionados != null)
             {
                 Articulo articulo = seleccionados.Find(x => x.id == articuloId);
-                seleccionados.Remove(articulo);
-                Session["Seleccionados"] = seleccionados;
-            }          
+                seleccionados.Remove(articulo);               
+            }
+            Response.Redirect(Request.RawUrl);
         }
     }
 }

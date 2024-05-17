@@ -3,14 +3,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <%if(Session["Seleccionados"] == null)
+    <%if(Session["Seleccionados"] != null)
             {%>
-                <h2>El carrito está vacío.</h2>
-                <a href="/Home.aspx" class="btn btn-info">Ir a comprar</a>
+                <h1>Carrito</h1>
             <%}
         else
             {%>
-                <h1>Carrito</h1>
+                <h2>El carrito está vacío.</h2>
+                <a href="/Home.aspx" class="btn btn-info">Ir a comprar</a>
            <% }%>
     <hr />
     <div class="row">
