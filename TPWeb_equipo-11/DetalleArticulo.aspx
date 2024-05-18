@@ -85,6 +85,7 @@
                 <label for="validCantidad" class="col sm-2">Cantidad</label>
                 <asp:DropDownList runat="server" ID="validCantidad" AutoPostBack="True" OnSelectedIndexChanged="validCantidad_SelectedIndexChanged">
                     <%--OnSelectedIndexChanged=""--%>
+                    <asp:ListItem Text="0" />
                     <asp:ListItem Text="1" />
                     <asp:ListItem Text="2" />
                     <asp:ListItem Text="3" />

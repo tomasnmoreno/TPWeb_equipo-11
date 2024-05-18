@@ -14,14 +14,17 @@ namespace TPWeb_equipo_11
     {
         public List<Articulo> listaArticulos;
         public List<dominio.Carrito> listaCarrito;
-
+        private int cantidadSelec;
         protected void Page_Load(object sender, EventArgs e)
         {
-                if (!IsPostBack)
-                {
-                    cargarDatosActualPag();
-                    
-                }
+            if (!IsPostBack)
+            {
+                cargarDatosActualPag();
+            }
+            //else
+            //{
+            //    cargarDatosActualPag();
+            //}
 
             //else
             //{
@@ -95,9 +98,5 @@ namespace TPWeb_equipo_11
             //Response.Redirect(Request.RawUrl);
         }
 
-        protected void validCantidad_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
     }
 }

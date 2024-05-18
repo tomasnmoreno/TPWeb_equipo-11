@@ -12,41 +12,63 @@ namespace TPWeb_equipo_11
 {
     public partial class DetalleArticulo : System.Web.UI.Page
     {
-        
+
         public List<Articulo> listaArticulos;
         public List<Imagen> listaImagenes;
         public List<dominio.Carrito> listaCarrito;
         public int idRecup;
-        public int cantidadSelec;
+        private int cantidadSelec;
         Articulo articulo;
         protected void Page_Load(object sender, EventArgs e)
-        
+
         {
-            
-            listaArticulos = (List<Articulo>)Session["listaArticulos"];
-            idRecup = int.Parse(Request.QueryString["id"]);
-            articulo = listaArticulos.Find(Articulo => Articulo.id == idRecup);
-            Session.Add("articulo", articulo); // creo que no se usa. <tomas moreno>
+            if (!IsPostBack)
+            {
+                listaArticulos = (List<Articulo>)Session["listaArticulos"];
+                idRecup = int.Parse(Request.QueryString["id"]);
+                articulo = listaArticulos.Find(Articulo => Articulo.id == idRecup);
+                Session.Add("articulo", articulo); // creo que no se usa. <tomas moreno>
 
-            ImagenNegocio imgNegocio = new ImagenNegocio();
-            listaImagenes = imgNegocio.listar(articulo);
-            
+                ImagenNegocio imgNegocio = new ImagenNegocio();
+                listaImagenes = imgNegocio.listar(articulo);
 
-            //// Asigno datos a los textboxs ////
-            
-            txtCodigo.Text = articulo.codigo;
-            txtNombre.Text = articulo.nombre;
-            txtDescripcion.Text = articulo.descripcion;
-            txtMarca.Text = articulo.marca.ToString();
-            txtCategoria.Text = articulo.categoria.ToString();
-            txtPrecio.Text = "$" + articulo.precio.ToString();
-            
-            
+
+                //// Asigno datos a los textboxs ////
+                txtCodigo.Text = articulo.codigo;
+                txtNombre.Text = articulo.nombre;
+                txtDescripcion.Text = articulo.descripcion;
+                txtMarca.Text = articulo.marca.ToString();
+                txtCategoria.Text = articulo.categoria.ToString();
+                txtPrecio.Text = "$" + articulo.precio.ToString();
+            }
+
+            else
+            {
+                listaArticulos = (List<Articulo>)Session["listaArticulos"];
+                idRecup = int.Parse(Request.QueryString["id"]);
+                articulo = listaArticulos.Find(Articulo => Articulo.id == idRecup);
+                Session.Add("articulo", articulo); // creo que no se usa. <tomas moreno>
+
+                ImagenNegocio imgNegocio = new ImagenNegocio();
+                listaImagenes = imgNegocio.listar(articulo);
+
+
+                //// Asigno datos a los textboxs ////
+                txtCodigo.Text = articulo.codigo;
+                txtNombre.Text = articulo.nombre;
+                txtDescripcion.Text = articulo.descripcion;
+                txtMarca.Text = articulo.marca.ToString();
+                txtCategoria.Text = articulo.categoria.ToString();
+                txtPrecio.Text = "$" + articulo.precio.ToString();
+            }
         }
+
+
+
 
         protected void validCantidad_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cantidadSelec = validCantidad.SelectedIndex + 1;
+            cantidadSelec = validCantidad.SelectedIndex;
             Session.Add("cantidadSelec", cantidadSelec);
         }
 

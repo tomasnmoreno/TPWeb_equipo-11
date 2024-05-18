@@ -27,7 +27,9 @@
 
                             <div class="col-md-3">
                                 <label for="validCantidad" class="col sm-2">Cantidad</label>
-                                <asp:DropDownList runat="server" ID="validCantidad" AutoPostBack="True" OnSelectedIndexChanged="validCantidad_SelectedIndexChanged">
+                                <asp:DropDownList ID="ValidCantidad" runat="server">
+                                    <%--AutoPostBack="True" OnSelectedIndexChanged="CantidadSelec_SelectedIndexChanged"--%>
+                                    <asp:ListItem Text="0" />
                                     <asp:ListItem Text="1" />
                                     <asp:ListItem Text="2" />
                                     <asp:ListItem Text="3" />
@@ -37,7 +39,7 @@
                                     <asp:ListItem Text="7" />
                                 </asp:DropDownList>
                             </div>
-
+                            
                             <%--//// OTRA OPCION: Select de Bootstrap ////--%>
                             <%--<div class="col-md-3">
                                 <select id="dpdCantidad" class="form-select" aria-label="Default select example">
@@ -60,6 +62,7 @@
         </asp:Repeater>
 
     </div>
+    
     <div>
         <asp:Label runat="server" ID="lblTotalCarrito" Text="Total del Carrito: $0.00" />
         <hr />
