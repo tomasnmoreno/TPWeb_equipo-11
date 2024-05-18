@@ -13,49 +13,91 @@ namespace TPWeb_equipo_11
     public partial class Carrito : System.Web.UI.Page
     {
         public List<Articulo> listaArticulos;
-       
+        public List<dominio.Carrito> listaCarrito;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Seleccionados"] != null)
-            {
-                List<Articulo> seleccionados = (List<Articulo>)Session["Seleccionados"];
-
                 if (!IsPostBack)
                 {
-                    repCarrito.DataSource = seleccionados;
-                    repCarrito.DataBind();
-
-                    decimal totalCarrito = CalcularTotalCarrito(seleccionados);
-                    lblTotalCarrito.Text = "Total del Carrito: $" + totalCarrito.ToString("0.00");
+                    cargarDatosActualPag();
+                    
                 }
-            }
+
+            //else
+            //{
+            //    listaCarrito = (List<dominio.Carrito>)Session["listaCarrito"];
+            //    repCarrito.DataSource = listaCarrito;
+            //    repCarrito.DataBind();
+            //}
+
+
+
+
+            //if (Session["Seleccionados"] != null)
+            //{
+            //    List<Articulo> seleccionados = (List<Articulo>)Session["Seleccionados"];
+
+            //    if (!IsPostBack)
+            //    {
+            //        repCarrito.DataSource = seleccionados;
+            //        repCarrito.DataBind();
+
+            //        decimal totalCarrito = CalcularTotalCarrito(seleccionados);
+            //        lblTotalCarrito.Text = "Total del Carrito: $" + totalCarrito.ToString("0.00");
+            //    }
+            //}
         }
-            private decimal CalcularTotalCarrito(List<Articulo> articulos)
+        private decimal CalcularTotalCarrito(List<dominio.Carrito> articulos)
+        {
+            decimal total = 0;
+
+            foreach (var articulo in articulos)
             {
-                decimal total = 0;
-
-                foreach (var articulo in articulos)
-                {
-                    total += articulo.precio;
-                }
-
-                return total;
+                total += articulo.agregado.precio * articulo.cantidad;
             }
+
+            return total;
+            //decimal total = 0;
+
+            //foreach (var articulo in articulos)
+            //{
+            //    total += articulo.precio;
+            //}
+
+            //return total;
+        }
+
+        private void cargarDatosActualPag()
+        {
+            listaCarrito = (List<dominio.Carrito>)Session["listaCarrito"];
+            repCarrito.DataSource = listaCarrito;
+            repCarrito.DataBind();
+            decimal totalCarrito = CalcularTotalCarrito(listaCarrito);
+            lblTotalCarrito.Text = "Total del Carrito: $" + totalCarrito.ToString("0.00");
+        }
 
         protected void btnEliminarDelCarrito_Click(object sender, EventArgs e)
         {
-            
+
             Button btn = (Button)sender;
             int articuloId = Convert.ToInt32(btn.CommandArgument);
 
-            List<Articulo> seleccionados = (List<Articulo>)Session["Seleccionados"];
+            listaCarrito = (List<dominio.Carrito>)Session["listaCarrito"];
+            //List<Articulo> seleccionados = (List<Articulo>)Session["listaCarrito"];
 
-            if(seleccionados != null)
+            if (listaCarrito.Count() != 0)
             {
-                Articulo articulo = seleccionados.Find(x => x.id == articuloId);
-                seleccionados.Remove(articulo);               
+                dominio.Carrito articuloElim = listaCarrito.Find(x => x.agregado.id == articuloId);
+                listaCarrito.Remove(articuloElim);
+                Session.Add("listaCarrito", listaCarrito);
+                cargarDatosActualPag();
             }
-            Response.Redirect(Request.RawUrl);
+            //Response.Redirect(Request.RawUrl);
+        }
+
+        protected void validCantidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

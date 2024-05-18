@@ -13,6 +13,7 @@ namespace TPWeb_equipo_11
     {
         public List<Articulo> listaArticulos;
         public List<Imagen> listaimagenes;
+        public List<dominio.Carrito> listaCarrito;
         List<Articulo> filtroArticulos;
         string filtro;
         public ImagenNegocio imaNegocio = new ImagenNegocio();
@@ -23,11 +24,16 @@ namespace TPWeb_equipo_11
             {
                 ArticuloNegocio artNegocio = new ArticuloNegocio();
                 listaArticulos = artNegocio.listar();
+                Session.Add("listaArticulos", listaArticulos);
 
                 repetidor.DataSource = listaArticulos;
                 repetidor.DataBind();
-                
-                Session.Add("listaArticulos", listaArticulos);
+
+                if (Session["listaCarrito"] == null)
+                {
+                    listaCarrito = new List<dominio.Carrito>();
+                    Session.Add("listaCarrito", listaCarrito);
+                }
             }
             else
             {
@@ -38,33 +44,47 @@ namespace TPWeb_equipo_11
 
         protected void btnAgregarAlCarrito_Click(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
-            int articuloId = Convert.ToInt32(btn.CommandArgument);
+            int articuloId = int.Parse(((Button)sender).CommandArgument);
+            listaArticulos = (List<Articulo>)Session["listaArticulos"];
+            Articulo seleccionado = listaArticulos.Find(Articulo => Articulo.id == articuloId);
 
-            
+            //Carrito itemCarrito2 = new Carrito();
+            dominio.Carrito itemCarrito = new dominio.Carrito();
+            itemCarrito.agregado = seleccionado;
+            itemCarrito.cantidad = 1;
 
-            List<Articulo> seleccionados;
-            if (Session["Seleccionados"] == null)
-            {
-                ArticuloNegocio negocio = new ArticuloNegocio();
-                listaArticulos = negocio.listar();
-                seleccionados = new List<Articulo>();
-            }
-            else
-            {
-                seleccionados = (List<Articulo>)Session["Seleccionados"];
-            }
+            listaCarrito = (List<dominio.Carrito>)Session["listaCarrito"];
+            listaCarrito.Add(itemCarrito);
 
-            foreach (Articulo item in listaArticulos)
-            {
-                if (articuloId == item.id)
-                {
-                    seleccionados.Add(item);
-                }
-            }
+            Session.Add("listaCarrito", listaCarrito);
 
-            Session["Seleccionados"] = seleccionados;
-            Response.Redirect(Request.RawUrl);
+            //Button btn = (Button)sender;
+            //int articuloId = Convert.ToInt32(btn.CommandArgument);
+
+
+
+            //List<Articulo> seleccionados;
+            //if (Session["Seleccionados"] == null)
+            //{
+            //    ArticuloNegocio negocio = new ArticuloNegocio();
+            //    listaArticulos = negocio.listar();
+            //    seleccionados = new List<Articulo>();
+            //}
+            //else
+            //{
+            //    seleccionados = (List<Articulo>)Session["Seleccionados"];
+            //}
+
+            //foreach (Articulo item in listaArticulos)
+            //{
+            //    if (articuloId == item.id)
+            //    {
+            //        seleccionados.Add(item);
+            //    }
+            //}
+
+            //Session["Seleccionados"] = seleccionados;
+            //Response.Redirect(Request.RawUrl);
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
