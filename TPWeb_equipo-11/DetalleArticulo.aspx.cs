@@ -80,8 +80,26 @@ namespace TPWeb_equipo_11
             //artCarrito.cantidad = int.Parse(Session["cantidadSelec"].ToString()); no funciona, se rompe con esto
             artCarrito.cantidad = cantidadSelec;
             listaCarrito = (List<dominio.Carrito>)Session["listaCarrito"];
+            if (verificarCarrito(artCarrito, listaCarrito)==true )
+            {
             listaCarrito.Add(artCarrito);
+
+            }
             Session.Add("listaCarrito", listaCarrito);
+            Response.Redirect(Request.RawUrl);
+        }
+        protected bool verificarCarrito(dominio.Carrito selec, List<dominio.Carrito> carrito)
+        {
+            foreach (dominio.Carrito item in carrito)
+            {
+                if (selec.agregado.id  == item.agregado.id)
+                {
+                    item.cantidad += selec.cantidad;
+                    return false;
+
+                }
+            }
+            return true;
         }
     }
 }

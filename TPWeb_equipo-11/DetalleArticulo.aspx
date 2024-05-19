@@ -91,14 +91,12 @@
                     <asp:ListItem Text="3" />
                     <asp:ListItem Text="4" />
                     <asp:ListItem Text="5" />
-                    <asp:ListItem Text="6" />
-                    <asp:ListItem Text="7" />
                 </asp:DropDownList>
             </div>
             
             <hr />
 
-            <asp:Button Text="Confirmar" ID="btnConfirmar" runat="server" OnClick="btnConfirmar_Click"/>
+            <asp:Button cssclass="btn btn-primary" Text="Confirmar" ID="btnConfirmar" runat="server" OnClick="btnConfirmar_Click"/>
 
         </div>
     </div>

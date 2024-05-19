@@ -95,7 +95,7 @@ namespace TPWeb_equipo_11
                 Session.Add("listaCarrito", listaCarrito);
                 cargarDatosActualPag();
             }
-            //Response.Redirect(Request.RawUrl);
+            Response.Redirect(Request.RawUrl);
         }
 
     }

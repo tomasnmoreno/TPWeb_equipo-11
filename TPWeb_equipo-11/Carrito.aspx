@@ -35,8 +35,6 @@
                                     <asp:ListItem Text="3" />
                                     <asp:ListItem Text="4" />
                                     <asp:ListItem Text="5" />
-                                    <asp:ListItem Text="6" />
-                                    <asp:ListItem Text="7" />
                                 </asp:DropDownList>
                             </div>
                             

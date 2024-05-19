@@ -52,39 +52,30 @@ namespace TPWeb_equipo_11
             dominio.Carrito itemCarrito = new dominio.Carrito();
             itemCarrito.agregado = seleccionado;
             itemCarrito.cantidad = 1;
-
             listaCarrito = (List<dominio.Carrito>)Session["listaCarrito"];
+
+            if (verificarCarrito(seleccionado, listaCarrito) == true)
+            {
             listaCarrito.Add(itemCarrito);
-
+            }
             Session.Add("listaCarrito", listaCarrito);
-
-            //Button btn = (Button)sender;
-            //int articuloId = Convert.ToInt32(btn.CommandArgument);
+            Response.Redirect(Request.RawUrl);
 
 
+        }
 
-            //List<Articulo> seleccionados;
-            //if (Session["Seleccionados"] == null)
-            //{
-            //    ArticuloNegocio negocio = new ArticuloNegocio();
-            //    listaArticulos = negocio.listar();
-            //    seleccionados = new List<Articulo>();
-            //}
-            //else
-            //{
-            //    seleccionados = (List<Articulo>)Session["Seleccionados"];
-            //}
-
-            //foreach (Articulo item in listaArticulos)
-            //{
-            //    if (articuloId == item.id)
-            //    {
-            //        seleccionados.Add(item);
-            //    }
-            //}
-
-            //Session["Seleccionados"] = seleccionados;
-            //Response.Redirect(Request.RawUrl);
+        protected bool verificarCarrito(Articulo selec, List<dominio.Carrito> carrito)
+        {
+            foreach (dominio.Carrito item in carrito)
+            {
+                if (selec.id==item.agregado.id)
+                {
+                    item.cantidad += 1;
+                    return false;
+                    
+                }
+            }
+            return true;
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
