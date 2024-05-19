@@ -26,9 +26,13 @@
                             <p class="card-text">Precio: $ <%# string.Format("{0:0.00}", Eval("agregado.Precio")) %></p>
 
                             <div class="col-md-3">
+                                <asp:TextBox CssClass="form-control " ID="txtCantidad" TextMode="Number" Text='<%#Eval("cantidad")%>' AutoPostBack="true" runat="server" OnTextChanged="txtCantidad_TextChanged" ToolTip='<%# Eval("agregado.id")%>' min="0" />
+                            </div>
+
+
+                            <%--                            <div class="col-md-3">
                                 <label for="validCantidad" class="col sm-2">Cantidad</label>
                                 <asp:DropDownList ID="ValidCantidad" runat="server">
-                                    <%--AutoPostBack="True" OnSelectedIndexChanged="CantidadSelec_SelectedIndexChanged"--%>
                                     <asp:ListItem Text="0" />
                                     <asp:ListItem Text="1" />
                                     <asp:ListItem Text="2" />
@@ -36,8 +40,8 @@
                                     <asp:ListItem Text="4" />
                                     <asp:ListItem Text="5" />
                                 </asp:DropDownList>
-                            </div>
-                            
+                            </div>--%>
+
                             <%--//// OTRA OPCION: Select de Bootstrap ////--%>
                             <%--<div class="col-md-3">
                                 <select id="dpdCantidad" class="form-select" aria-label="Default select example">
@@ -60,7 +64,7 @@
         </asp:Repeater>
 
     </div>
-    
+
     <div>
         <asp:Label runat="server" ID="lblTotalCarrito" Text="Total del Carrito: $0.00" />
         <hr />

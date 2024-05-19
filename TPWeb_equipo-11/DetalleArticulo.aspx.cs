@@ -76,7 +76,11 @@ namespace TPWeb_equipo_11
         {
             dominio.Carrito artCarrito = new dominio.Carrito();
             artCarrito.agregado = articulo;
+
+            if (Session["cantidadSelec"] != null)
+            {
             cantidadSelec = int.Parse(Session["cantidadSelec"].ToString());
+            }
             //artCarrito.cantidad = int.Parse(Session["cantidadSelec"].ToString()); no funciona, se rompe con esto
             artCarrito.cantidad = cantidadSelec;
             listaCarrito = (List<dominio.Carrito>)Session["listaCarrito"];

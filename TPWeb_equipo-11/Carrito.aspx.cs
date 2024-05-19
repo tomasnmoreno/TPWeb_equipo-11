@@ -98,5 +98,26 @@ namespace TPWeb_equipo_11
             Response.Redirect(Request.RawUrl);
         }
 
+        protected void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(((TextBox)sender).Text) >= 0)
+            {
+                cantidadSelec = Convert.ToInt32(((TextBox)sender).Text);
+                //dominio.Carrito artCarrito = new dominio.Carrito();
+                listaCarrito = (List<dominio.Carrito>)Session["listaCarrito"];
+
+                var Item = listaCarrito.Find(x => x.agregado.id == Convert.ToInt32(((TextBox)sender).ToolTip));
+                Item.cantidad = cantidadSelec;
+
+                Session.Add("listaCarrito", listaCarrito);
+
+                cargarDatosActualPag();
+                Response.Redirect(Request.RawUrl);
+            }
+            else
+            {
+                Response.Redirect(Request.RawUrl);
+            }
+        }
     }
 }

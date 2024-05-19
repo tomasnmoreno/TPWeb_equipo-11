@@ -42,7 +42,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="Carrito.aspx">
-                                        <img style="width: 30px" src="Contents\carrito3.png" alt="Alternate Text" /></a>
+                                        <img style="width: 30px" src="Contents\carrito3.png" alt="flavicon_Carrito" /></a>
                                     <asp:Label CssClass="contador" ID="contadorCarrito" runat="server" Text="">0</asp:Label>
                                 </li>
                             </ul>             
